@@ -1,3 +1,4 @@
+{
 //********* Cała funkcja playGame **********//
 
 function playGame(playerInput) {
@@ -5,19 +6,19 @@ function playGame(playerInput) {
 	clearMessages();
 	console.log ('clearMessages: ' + clearMessages());
 	
-//********* Losowanie liczby przez skrypt. **********//
+	//********* Losowanie liczby przez skrypt. **********//
 	
 	const randomNumber = Math.floor(Math.random() * 3 + 1);
 	console.log('Wylosowana liczba przez skrypt: ' + randomNumber);
 	const computerMove = getMoveName(randomNumber);
 	
-//********* Odczytanie ruchu gracza. **********//
+	//********* Odczytanie ruchu gracza. **********//
 	
 	//const playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');
 	console.log('Gracz wybrał: ' + playerInput);
 	const playerMove = getMoveName(playerInput);
 	
-//********* Przypisanie [ Kamień -1, Papier -2, Nożyce -3 ] **********//
+	//********* Przypisanie [ Kamień -1, Papier -2, Nożyce -3 ] **********//
 	
 	function getMoveName(argMoveId) {
 		if(argMoveId == 1) {
@@ -30,11 +31,11 @@ function playGame(playerInput) {
 			printMessage('Nie znam ruchu o id ' + argMoveId + '.');
 			return 'nieznany ruch';
 		}
-	}
+	};
 	
-//********* Wyświetlanie wyniku. **********//
+	//********* Wyświetlanie wyniku. **********//
 	
-	function displayResult(argComputerMove, argPlayerMove) {
+	const displayResult = function(argComputerMove, argPlayerMove) {
 		
 		if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
 			return 'Ty wygrywasz!';
@@ -57,7 +58,7 @@ function playGame(playerInput) {
 		}
 	}
 	printMessage(displayResult(computerMove, playerMove));
-}
+};
 
 document.getElementById('play-rock').addEventListener('click', function(){
 	playGame(1);
@@ -70,3 +71,4 @@ document.getElementById('play-paper').addEventListener('click', function(){
 document.getElementById('play-scissors').addEventListener('click', function(){
 	playGame(3);
 });
+}; 
